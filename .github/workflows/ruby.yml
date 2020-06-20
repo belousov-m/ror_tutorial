@@ -28,7 +28,9 @@ jobs:
       with:
         ruby-version: 2.5.1
     - name: Set up sqlite3
-      run: gem install sqlite3 -v '1.4.2' --source 'https://rubygems.org/'
+      run: |
+        brew install sqlite3
+        brew install libsqlite3-dev
     - name: Install dependencies
       run: bundle install
     - name: Run tests
