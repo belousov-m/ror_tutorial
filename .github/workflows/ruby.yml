@@ -28,7 +28,7 @@ jobs:
       with:
         ruby-version: 2.5.1
     - name: Install dependencies
-      run: RAILS_ENV=test bundle
+      run: bundle install
     - name: Run tests
       run: rails test
       
