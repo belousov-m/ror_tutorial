@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: CI
+name: rspec
 
 on:
   push:
@@ -16,7 +16,7 @@ on:
 jobs:
   rspec:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
@@ -30,9 +30,4 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Run tests
-      run: rails test
-      
-    - name: Rubocop checks
-      uses: gimenete/rubocop-action@1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: bundle exec rake
